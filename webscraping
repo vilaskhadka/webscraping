@@ -1,0 +1,23 @@
+import requests 
+from bs4 import BeautifulSoup
+
+url="https://www.codewithharry.com"
+r= requests.get(url)
+htmlContent=r.content
+
+soup = BeautifulSoup(htmlContent,'html.parser')
+title=soup.title
+
+print (type(title.string))
+
+paras = soup.find_all('p')
+# print (paras)
+
+Anchors = soup.find_all('a')
+# print (Anchors)
+
+#get first element
+# print (soup.find('p')['class'])
+
+
+print (soup.find('p',class_='lead'))
